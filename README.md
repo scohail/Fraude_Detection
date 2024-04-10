@@ -23,4 +23,3 @@ DT :Fichier qui contient un test sur le modele Decision Tree en en exploitant le
 
 
 
-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

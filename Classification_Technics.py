@@ -46,21 +46,40 @@ def KNN_modele(data):
     return clf
 
 #Teste modele
-def Test_model(data, model , oversampling_tec):
-    if oversampling_tec == 'SMOTE':
+def Test_model(data, model , balancing_tec):
+    if balancing_tec == 'SMOTE':
         from Over_Sampling_Tec import SMOTE_tec
         data_resampled = SMOTE_tec(data)
-    elif oversampling_tec == 'RandomOverSampler': 
+    elif balancing_tec == 'RandomOverSampler': 
         from Over_Sampling_Tec import RandomOverSampler_tec   
         data_resampled = RandomOverSampler_tec(data)    
-    elif oversampling_tec == 'ADASYN':
+    elif balancing_tec == 'ADASYN':
         from Over_Sampling_Tec import ADASYN_tec
         data_resampled = ADASYN_tec(data)
-    elif oversampling_tec == 'BorderlineSMOTE':
+    elif balancing_tec == 'BorderlineSMOTE':
         from Over_Sampling_Tec import BorderlineSMOTE_tec
         data_resampled = BorderlineSMOTE_tec(data)
+    elif balancing_tec=='Undersampling':
+        from Under_Sampling_Tec import RandomUnderSampler
+        data_resampled=RandomUnderSampler(data)
+    elif balancing_tec=='Tomeklinks':
+        from Under_Sampling_Tec import Tomek_Links
+        data_resampled=Tomek_Links(data)
+    elif balancing_tec=='ENN':
+        from Under_Sampling_Tec import ENN
+        data_resampled=ENN(data)
+    elif balancing_tec=='Nearmiss1':
+        from Under_Sampling_Tec import NearMiss1
+        data_resampled=NearMiss1(data)
+    elif balancing_tec=='Nearmiss2':
+        from Under_Sampling_Tec import NearMiss2
+        data_resampled=NearMiss2(data)
+    elif balancing_tec=='Nearmiss3':
+        from Under_Sampling_Tec import NearMiss3
+        data_resampled=NearMiss3(data)
+
     else:
-        print('Error: The oversampling technique is not available')
+        print('Error: The technique is not available')
 
     scores = K_fold_cross_validation_tec(data_resampled, model)
 

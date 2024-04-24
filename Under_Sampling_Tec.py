@@ -16,8 +16,8 @@ def Random_Undersampling(data):
 
     return data_resampled
 
-def TomekLinks(data):
-    tl = TomekLinks()
+def Tomek_Links(data):
+    tl = TomekLinks(sampling_strategy='auto')
     X_resampled_tomek, y_resampled_tomek = tl.fit_resample(data.drop('Class', axis=1), data['Class'])
     print('Original dataset shape %s' % Counter(data['Class']))
     print('Resampled dataset shape %s' % Counter(y_resampled_tomek))

@@ -60,10 +60,11 @@ def Test_model(data, model , oversampling_tec):
         from Over_Sampling_Tec import BorderlineSMOTE_tec
         data_resampled = BorderlineSMOTE_tec(data)
     else:
-        data_resampled = data
-    scores=K_fold_cross_validation_tec(data_resampled, model)
+        print('Error: The oversampling technique is not available')
 
+    scores = K_fold_cross_validation_tec(data_resampled, model)
 
+    
     return scores
 
 

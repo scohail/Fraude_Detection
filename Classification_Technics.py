@@ -60,23 +60,23 @@ def Test_model(data, model , balancing_tec):
         from Over_Sampling_Tec import BorderlineSMOTE_tec
         data_resampled = BorderlineSMOTE_tec(data)
     elif balancing_tec=='Undersampling':
-        from Under_Sampling_Tec import RandomUnderSampler
+        from Under_Sampling_Techniques import RandomUnderSampler
         data_resampled=RandomUnderSampler(data)
     elif balancing_tec=='Tomeklinks':
-        from Under_Sampling_Tec import Tomek_Links
-        data_resampled=Tomek_Links(data)
+        from Under_Sampling_Techniques import Tomek_Links_Tec
+        data_resampled=Tomek_Links_Tec(data)
     elif balancing_tec=='ENN':
-        from Under_Sampling_Tec import ENN
+        from Under_Sampling_Techniques import ENN
         data_resampled=ENN(data)
     elif balancing_tec=='Nearmiss1':
-        from Under_Sampling_Tec import NearMiss1
-        data_resampled=NearMiss1(data)
+        from Under_Sampling_Techniques import NearMiss1_Tec
+        data_resampled=NearMiss1_Tec(data)
     elif balancing_tec=='Nearmiss2':
-        from Under_Sampling_Tec import NearMiss2
-        data_resampled=NearMiss2(data)
+        from Under_Sampling_Techniques import NearMiss2_Tec
+        data_resampled=NearMiss2_Tec(data)
     elif balancing_tec=='Nearmiss3':
-        from Under_Sampling_Tec import NearMiss3
-        data_resampled=NearMiss3(data)
+        from Under_Sampling_Techniques import NearMiss3_Tec
+        data_resampled=NearMiss3_Tec(data)
 
     else:
         print('Error: The technique is not available')

@@ -16,7 +16,7 @@ def Random_Undersampling_tec(data):
 
     return data_resampled
 
-def TomekLinks_Tec(data):
+def TomekLinks_tec(data):
     tl = TomekLinks(sampling_strategy='auto',)
     X_resampled_tomek, y_resampled_tomek = tl.fit_resample(data.drop('Class', axis=1), data['Class'])
     print('Original dataset shape %s' % Counter(data['Class']))
@@ -25,7 +25,7 @@ def TomekLinks_Tec(data):
 
     return data_resampled
 
-def ENN_Tec(data):
+def ENN_tec(data):
     enn = EditedNearestNeighbours(sampling_strategy='auto', n_neighbors=31, kind_sel='all')
     X_resampled_enn, y_resampled_enn = enn.fit_resample(data.drop('Class', axis=1), data['Class'])
     print('Original dataset shape %s' % Counter(data['Class']))
@@ -34,7 +34,7 @@ def ENN_Tec(data):
 
     return data_resampled
 
-def NearMiss1_Tec(data):
+def NearMiss1_tec(data):
     nm1 = NearMiss(
             sampling_strategy='auto',  # undersamples only the majority class
             version=1,
@@ -47,7 +47,7 @@ def NearMiss1_Tec(data):
 
     return data_resampled
 
-def NearMiss2_Tec(data):
+def NearMiss2_tec(data):
     nm1 = NearMiss(
             sampling_strategy='auto',  # undersamples only the majority class
             version=2,
@@ -59,7 +59,7 @@ def NearMiss2_Tec(data):
     data_resampled = pd.concat([X_resampled_NearMiss2, y_resampled_NearMiss2], axis=1)
 
     return data_resampled
-def NearMiss3_Tec(data):
+def NearMiss3_tec(data):
     nm1 = NearMiss(
             sampling_strategy='auto',  # undersamples only the majority class
             version=3,
@@ -71,7 +71,6 @@ def NearMiss3_Tec(data):
     data_resampled = pd.concat([X_resampled_NearMiss3, y_resampled_NearMiss3], axis=1)
 
     return data_resampled
-
 
 
 
